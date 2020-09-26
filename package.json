@@ -18,7 +18,8 @@
     },
     "homepage": "https://github.com/sasoder/tts-server#readme",
     "dependencies": {
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "tmp": "^0.2.1"
     },
     "devDependencies": {
         "axios": "^0.20.0",
