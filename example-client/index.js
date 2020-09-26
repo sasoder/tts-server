@@ -16,7 +16,6 @@ async function main() {
             </voice>
         </speak>
         `,
-        filename: 'speech.wav',
     })
 
     let { bookmarks, base64audio } = res.data
