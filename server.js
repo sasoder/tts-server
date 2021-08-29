@@ -15,8 +15,8 @@ app.use(
 
 app.post('/synthesize', (req, res) => {
     // Generate the sound and bookmarks
-    tmp.file(function _tempFileCreated(err, filepath) {
-        fullPath = filepath + '.wav'
+    tmp.file(function _tempFileCreated(err, filepath, manualCleanup) {
+        let fullPath = filepath + '.wav'
         if (err) throw err
         const process = spawn('speech-app.exe', [fullPath, req.body.string])
 
@@ -35,6 +35,8 @@ app.post('/synthesize', (req, res) => {
                 bookmarks: stdout_text,
                 base64audio: data.toString('base64'),
             })
+            
+            manualCleanup()
         })
     })
 })
